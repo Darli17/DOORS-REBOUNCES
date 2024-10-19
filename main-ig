@@ -63,40 +63,6 @@ local Button = Tab:CreateButton({
    end,
 })
 local Button = Tab:CreateButton({
-	Name = "Bandage [HEAL]"
-	Callback = function()
-local a = game:GetObjects("rbxassetid://133560159098629")[1]
-a.Animations.use.AnimationId = "rbxassetid://10309280658"
-a.Parent = game.Players.LocalPlayer.Backpack
-local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-local af = a.Animations
-local Equip = b:LoadAnimation(af.equip)
-local Hold = b:LoadAnimation(af.idle)
-local Use = b:LoadAnimation(af.use)
-
-
-a.Equipped:Connect(function()
-	Equip:Play()
-	Equip.Stopped:Connect(function()
-		Hold:Play()
-	end)
-	a.Unequipped:Connect(function()
-		Equip:Stop()
-		Hold:Stop()
-	end)
-
-	a.Activated:Connect(function()
-		Equip:Stop()
-		Hold:Stop()
-		Use:Play()
-		wait(1)
-		a:Destroy()
-		b.Health += 50
-	end)
-end)
-end,
-})
-local Button = Tab:CreateButton({
    Name = "Maxwell",
    Callback = function()
    local a = game:GetObjects("rbxassetid://81396765030644")[1]
@@ -111,6 +77,35 @@ a.Equipped:Connect(function()
 	end)
 end)
    end,
+})
+local Button = Tab:CreateButton({
+	Name = "Bandage [HEAL]",
+	Callback = function()
+local a = game:GetObjects("rbxassetid://133560159098629")[1]
+a.Animations.idle.AnimationId = "rbxassetid://10479585177"
+a.Animations.use.AnimationId = "rbxassetid://10309280658"
+a.Parent = game.Players.LocalPlayer.Backpack
+local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local af = a.Animations
+local Hold = b:LoadAnimation(af.idle)
+local Use = b:LoadAnimation(af.use)
+
+
+a.Equipped:Connect(function()
+	Hold:Play()
+	a.Unequipped:Connect(function()
+		Hold:Stop()
+	end)
+
+	a.Activated:Connect(function()
+		Hold:Stop()
+		Use:Play()
+		wait(1)
+		a:Destroy()
+		b.Health += 50
+	end)
+end)
+end,
 })
 local Button = Tab:CreateButton({
    Name = "Laser Gun",
@@ -822,11 +817,51 @@ _G.Variant = "Electric"
 loadstring(game:HttpGet('https://raw.githubusercontent.com/PenguinManiack/Crucifix/main/Crucifix.lua'))()
 end,
 })
+local TabC = Window:CreateTab("Features", 4483362458)
+local Section = TabC:CreateSection("Damage")
+local Button = TabC:CreateButton({
+   Name = "Take Damage -50",
+   Callback = function()
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(50)
+end,
+})
+local Button = TabC:CreateButton({
+   Name = "Take Damage -100",
+   Callback = function()
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
+end,
+})
+local Section = TabC:CreateSection("Mini Player Settings")
+local Slider = TabC:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {15, 100},
+   Increment = 10,
+   Suffix = "",
+   CurrentValue = 15,
+   Flag = "WalkSpeed",
+   Callback = function(Value)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+end,
+})
 local TabF = Window:CreateTab("Settings")
 local Button = TabF:CreateButton({
    Name = "Unload",
    Callback = function()
-   Rayfield:Destroy()
+	Rayfield:Notify({
+   Title = "ROBHUB X NOTIFICATION",
+   Content = "Do you really want to close ROBHUB X ITEM GIVER?",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Yes",
+         Callback = function()
+   	Rayfield:Destroy()
+         print("RobHub X Item Giver Unloaded!")
+      end
+   },
+},
+})
 end,
 })
 
