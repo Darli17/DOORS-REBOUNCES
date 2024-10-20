@@ -24,7 +24,7 @@ local Window = Rayfield:CreateWindow({
 })
 -- SCRIPTS
 
-local Tab = Window:CreateTab("Items", 4483362458)
+local Tab = Window:CreateTab("Items", 139660597094286)
 local Section = Tab:CreateSection("ValerikRob's Items")
 local Button = Tab:CreateButton({
    Name = "M249",
@@ -817,7 +817,7 @@ _G.Variant = "Electric"
 loadstring(game:HttpGet('https://raw.githubusercontent.com/PenguinManiack/Crucifix/main/Crucifix.lua'))()
 end,
 })
-local TabC = Window:CreateTab("Features", 4483362458)
+local TabC = Window:CreateTab("Features", 130324592621375)
 local Section = TabC:CreateSection("Damage")
 local Button = TabC:CreateButton({
    Name = "Take Damage -50",
@@ -831,19 +831,7 @@ local Button = TabC:CreateButton({
 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
 end,
 })
-local Section = TabC:CreateSection("Mini Player Settings")
-local Slider = TabC:CreateSlider({
-   Name = "WalkSpeed",
-   Range = {15, 100},
-   Increment = 10,
-   Suffix = "",
-   CurrentValue = 15,
-   Flag = "WalkSpeed",
-   Callback = function(Value)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
-end,
-})
-local TabF = Window:CreateTab("Settings")
+local TabF = Window:CreateTab("UI Settings", 119777805863939)
 local Button = TabF:CreateButton({
    Name = "Unload",
    Callback = function()
@@ -864,40 +852,3 @@ local Button = TabF:CreateButton({
 })
 end,
 })
-
-
-local Details = {
-    Names =  "ROBHUB X NOTIFICATION",
-    Description = "Thanks for using ROBHUB X ITEM GIVER!",
-    Title = "Hello there!",
-    Reason =  "you have 3 seconds",
-    Icon = "http://www.roblox.com/asset/?id=130324592621375"
-}
-
-local LocalPlayer = game.Players.LocalPlayer;
-local GUI = LocalPlayer.PlayerGui.MainUI
-local TweenService = game:GetService("TweenService");
-local AchievementsHolder = GUI.AchievementsHolder.Achievement:Clone();
-AchievementsHolder.Size = UDim2.new(0, 0, 0, 0);
-AchievementsHolder.Frame.Position = UDim2.new(1.1, 0, 0, 0);
-AchievementsHolder.Name = "LiveAchievement";
-AchievementsHolder.Visible = true;
-AchievementsHolder.Parent = GUI.AchievementsHolder;
-AchievementsHolder.Frame.Details.Desc.Text = Details.Description
-AchievementsHolder.Frame.Details.Title.Text = Details.Title
-AchievementsHolder.Frame.Details.Reason:Destroy()
-AchievementsHolder.Frame.TextLabel.Text = Details.Names
-AchievementsHolder.Frame.ImageLabel.Image = Details.Icon
-AchievementsHolder.Sound:Play();
-AchievementsHolder:TweenSize(UDim2.new(1, 0, 0.2, 0), "In", "Quad", 0.8, true);
-wait(0.8);
-AchievementsHolder.Frame:TweenPosition(UDim2.new(0, 0, 0, 0), "Out", "Quad", 0.5, true);
-TweenService:Create(AchievementsHolder.Frame.Glow, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
-    ImageTransparency = 1
-		}):Play();
-		wait(8);
-AchievementsHolder.Frame:TweenPosition(UDim2.new(1.1, 0, 0, 0), "In", "Quad", 0.5, true);
-wait(0.5);
-AchievementsHolder:TweenSize(UDim2.new(1, 0, -0.1, 0), "InOut", "Quad", 0.5, true);
-wait(0.5);
-AchievementsHolder:Destroy();
