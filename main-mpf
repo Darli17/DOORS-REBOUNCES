@@ -97,7 +97,6 @@ local SectionD = TabD:CreateSection("DOORS GAME")
 local Button = TabD:CreateButton({
 	Name = "Admin Panel",
 	Callback = function()
-    Callback = function()
         Rayfield:Notify({
    Title = "Plugin is load...",
    Content = " Please wait...",
@@ -130,7 +129,6 @@ end,
 local Button = TabD:CreateButton({
 	Name = "Custom Entity Spawn",
 	Callback = function()
-    Callback = function()
         Rayfield:Notify({
    Title = "Plugin is load...",
    Content = " Please wait...",
