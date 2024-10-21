@@ -93,5 +93,32 @@ wait(0.5);
 AchievementsHolder:Destroy();
 end,
 })
+local SectionD = TabD:CreateSection("DOORS GAME")
+local Button = TabD:CreateButton({
+	Name = "Admin Panel",
+	Callback = function()
+    local a = game:GetObjects("rbxassetid://71894240720942")[1]
+    a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
+end,
+})
+local Button = TabD:CreateButton({
+	Name = "Delete Admin Panel",
+	Callback = function()
+    game.Players.LocalPlayer.PlayerGui.MainUI.AdminPanelOLD:Destroy()
+end,
+})
+local Button = TabD:CreateButton({
+	Name = "Custom Entity Spawn",
+	Callback = function()
+    local a = game:GetObjects("rbxassetid://108218295732902")[1]
+    a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
+end,
+})
+local Button = TabD:CreateButton({
+	Name = "Delete Custom Entity Spawner",
+	Callback = function()
+	game.Players.LocalPlayer.PlayerGui.MainUI.CustomEntity:Destroy()
+end,
+})
 
 local TabT = Window:CreateTab("Tower Heroes", 17130814771)
