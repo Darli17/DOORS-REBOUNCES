@@ -143,6 +143,7 @@ wait(3)
    Image = 12222222
 })  
     local a = game:GetObjects("rbxassetid://108218295732902")[1]
+	a.Visible = true
     a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
 end,
 })
