@@ -97,6 +97,20 @@ local SectionD = TabD:CreateSection("DOORS GAME")
 local Button = TabD:CreateButton({
 	Name = "Admin Panel",
 	Callback = function()
+    Callback = function()
+        Rayfield:Notify({
+   Title = "Plugin is load...",
+   Content = " Please wait...",
+   Duration = 3,
+   Image = 12222222
+})
+wait(3)
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Everything has been successfully loaded...",
+   Duration = 3,
+   Image = 12222222
+})  
     local a = game:GetObjects("rbxassetid://71894240720942")[1]
     a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
 end,
@@ -104,12 +118,32 @@ end,
 local Button = TabD:CreateButton({
 	Name = "Delete Admin Panel",
 	Callback = function()
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Successfully deleted.",
+   Duration = 3,
+   Image = 12222222
+})  
     game.Players.LocalPlayer.PlayerGui.MainUI.AdminPanelOLD:Destroy()
 end,
 })
 local Button = TabD:CreateButton({
 	Name = "Custom Entity Spawn",
 	Callback = function()
+    Callback = function()
+        Rayfield:Notify({
+   Title = "Plugin is load...",
+   Content = " Please wait...",
+   Duration = 3,
+   Image = 12222222
+})
+wait(3)
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Everything has been successfully loaded...",
+   Duration = 3,
+   Image = 12222222
+})  
     local a = game:GetObjects("rbxassetid://108218295732902")[1]
     a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
 end,
@@ -117,6 +151,12 @@ end,
 local Button = TabD:CreateButton({
 	Name = "Delete Custom Entity Spawner",
 	Callback = function()
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Successfully deleted.",
+   Duration = 3,
+   Image = 12222222
+})  
 	game.Players.LocalPlayer.PlayerGui.MainUI.CustomEntity:Destroy()
 end,
 })
