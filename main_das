@@ -1,0 +1,35 @@
+local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
+local w = VLib:Window("Amazing Darli's Script", "DOORS GAME", "P")
+local tab = w:Tab("Main")
+w:Tab("Tab 2")
+
+tab:Slider("WalkSpeed",15,100,15,function(t)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (t)
+end)
+
+tab:Slider("JumpPower",50,500,50,function(t)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = (t)
+end)
+
+tab:Button("Button",function()
+  print("Pressed!")
+end)
+
+tab:Toggle("Toggle",function(t)
+  print(t)
+end)
+
+
+tab:Dropdown("Dropdown",{"Option 1", "Option 2", "Option 3", "Option 4", "Option 5"},function(t)
+  print(t)
+end)
+
+tab:Colorpicker("Colorpicker",Color3.fromRGB(255, 1, 1),function(t)
+  print(t)
+end)
+
+tab:Textbox("Textbox", true,function(t)
+  print(t)
+end)
+
+tab:Label("Label")
