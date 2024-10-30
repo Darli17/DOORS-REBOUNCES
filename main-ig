@@ -18,11 +18,11 @@ print("[✅] LOADED! WAITING FOR LOADING...")
 wait(4)
 
 -- VARAIBLES
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- WINDOW
 local Window = Rayfield:CreateWindow({
-   Name = "ROBHUB X ITEMS GIVER",
+   Name = "ROBHUB X ITEMS GIVER [K TO TOGGLE]",
    LoadingTitle = "ROBHUB X ITEMS GIVER IS LOADED!",
    LoadingSubtitle = "by @ValerikRob",
    ConfigurationSaving = {
@@ -87,9 +87,20 @@ local Button = Tab:CreateButton({
 	local a = game:GetObjects("rbxassetid://87158351376719")[1]
 	local b = game.Players.LocalPlayer.Character.Humanoid
 	a.Parent = game.Players.LocalPlayer.Backpack
+    a.Animations.idle:Destroy()
+    a.Animations.idleM.Name = "idle"
+    a.Animations.idle.AnimationId = "rbxassetid://10479585177"
+    a.Handle.CanCollide = false
+    a.q.CanCollide = false
+    a.w.CanCollide = false
+    a.e.CanCollide = false
+    a.r.CanCollide = false
+    a.t.CanCollide = false
+    a.y.CanCollide = false
+    a.u.CanCollide = false
 
 	a.Equipped:Connect(function()
-		local pala = b:LoadAnimation(a.Animations.idleM)
+		local pala = b:LoadAnimation(a.Animations.idle)
 		pala:Play()
 		a.Equipped:Connect(function()
 			pala:Stop()
