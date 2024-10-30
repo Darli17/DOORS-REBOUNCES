@@ -1,3 +1,22 @@
+--[[
+
+	MADE BY
+ 	 _____          _____  _      _____  __ ______ 
+	 |  __ \   /\   |  __ \| |    |_   _|/_ |____  |
+	 | |  | | /  \  | |__) | |      | |   | |   / / 
+ 	| |  | |/ /\ \ |  _  /| |      | |   | |  / /  
+ 	| |__| / ____ \| | \ \| |____ _| |_  | | / /   
+ 	|_____/_/    \_\_|  \_\______|_____| |_|/_/    
+        	                          ______        
+    	                                 |______|       
+
+--]]
+
+print("[🛠️] WAIT FOR LOAD...")
+wait(2)
+print("[✅] LOADED! WAITING FOR LOADING...")
+wait(4)
+
 -- VARAIBLES
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
@@ -60,6 +79,22 @@ local Button = Tab:CreateButton({
    Name = "Gun",
    Callback = function()
    local a=game:GetObjects("rbxassetid://117412371517980")[1]local b=game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")a.Parent=game.Players.LocalPlayer.Backpack;a.Equipped:Connect(function()local a=a.Animations.idle;local a=b:LoadAnimation(a)a:Play()end)a.Unequipped:Connect(function()for a,a in pairs(b.Animator:GetPlayingAnimationTracks())do a:Stop()end end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Radio",
+   Callback = function()
+	local a = game:GetObjects("rbxassetid://87158351376719")[1]
+	local b = game.Players.LocalPlayer.Character.Humanoid
+	a.Parent = game.Players.LocalPlayer.Backpack
+
+	a.Equipped:Connect(function()
+		local pala = b:LoadAnimation(a.Animations.idleM)
+		pala:Play()
+		a.Equipped:Connect(function()
+			pala:Stop()
+		end)
+	end)
    end,
 })
 local Button = Tab:CreateButton({
