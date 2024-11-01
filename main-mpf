@@ -95,6 +95,86 @@ end,
 })
 local SectionD = TabD:CreateSection("DOORS GAME")
 local Button = TabD:CreateButton({
+	Name = "Admin Item [PRE-RUN SHOP]",
+	Callback = function()
+        Rayfield:Notify({
+   Title = "Plugin is load...",
+   Content = " Please wait...",
+   Duration = 3,
+   Image = 12222222
+})
+wait(3)
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Everything has been successfully loaded...",
+   Duration = 3,
+   Image = 12222222
+})  
+    local a = game:GetObjects("rbxassetid://121684781360672")[1]
+    a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI.ItemShop.Items
+end,
+})
+local Button = TabD:CreateButton({
+	Name = "Guiding Item [PRE-RUN SHOP]",
+	Callback = function()
+        Rayfield:Notify({
+   Title = "Plugin is load...",
+   Content = " Please wait...",
+   Duration = 3,
+   Image = 12222222
+})
+wait(3)
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Everything has been successfully loaded...",
+   Duration = 3,
+   Image = 12222222
+})  
+    local a = game:GetObjects("rbxassetid://75472721902562")[1]
+    a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI.ItemShop.Items
+end,
+})
+local Button = TabD:CreateButton({
+	Name = "Starlight Item [PRE-RUN SHOP]",
+	Callback = function()
+        Rayfield:Notify({
+   Title = "Plugin is load...",
+   Content = " Please wait...",
+   Duration = 3,
+   Image = 12222222
+})
+wait(3)
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Everything has been successfully loaded...",
+   Duration = 3,
+   Image = 12222222
+})  
+    local a = game:GetObjects("rbxassetid://90781079681452")[1]
+    a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI.ItemShop.Items
+end,
+})
+local Button = TabD:CreateButton({
+	Name = "Rift Item [PRE-RUN SHOP]",
+	Callback = function()
+        Rayfield:Notify({
+   Title = "Plugin is load...",
+   Content = " Please wait...",
+   Duration = 3,
+   Image = 12222222
+})
+wait(3)
+    Rayfield:Notify({
+   Title = "Successfully",
+   Content = "Everything has been successfully loaded...",
+   Duration = 3,
+   Image = 12222222
+})  
+    local a = game:GetObjects("rbxassetid://129491734357355")[1]
+    a.Parent = game.Players.LocalPlayer.PlayerGui.MainUI.ItemShop.Items
+end,
+})
+local Button = TabD:CreateButton({
 	Name = "Admin Panel",
 	Callback = function()
         Rayfield:Notify({
