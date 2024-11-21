@@ -1,0 +1,688 @@
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+local Window = Rayfield:CreateWindow({
+   Name = "ValerikRob Item Hub [DOORS]",
+   LoadingTitle = "Loading...",
+   LoadingSubtitle = "by ValerikRob",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local Tab = Window:CreateTab("Main", 139660597094286)
+local Section = Tab:CreateSection("ValerikRob's Items")
+
+local Button = Tab:CreateButton({
+   Name = "M249 [Released]",
+   Callback = function()
+   local plr = game.Players.LocalPlayer
+local Char = plr.Character or plr.CharacterAdded:Wait()
+local Hum = Char:FindFirstChild("Humanoid")
+local RightArm = Char:FindFirstChild("RightUpperArm")
+local LeftArm = Char:FindFirstChild("LeftUpperArm")
+local RightC1 = RightArm.RightShoulder.C1
+local LeftC1 = LeftArm.LeftShoulder.C1
+
+
+local a = game:GetObjects("rbxassetid://76053789426352")[1]
+local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local m249s = a.Sounds.m249
+p = game.Players.LocalPlayer
+m = p:GetMouse()
+a.Sounds.m249.Volume = 2
+a.Parent = game.Players.LocalPlayer.Backpack
+a.Equipped:Connect(function()
+	RightArm.Name = "R_Arm"
+	LeftArm.Name = "L_Arm"
+	RightArm.RightShoulder.C1 = RightC1 * CFrame.Angles(math.rad(-90), math.rad(-35), 0)
+   	LeftArm.LeftShoulder.C1 = LeftC1 * CFrame.new(1, 1, 0) * CFrame.Angles(math.rad(-80), math.rad(35), 0)
+	a.Activated:Connect(function()
+		a.Shot.GunShotLight.Enabled = true
+		a.Shot.Transparency = 0
+		a.Shot.Smoke1.Enabled = true
+		a.Shot.Smoke2.Enabled = true
+		a.Dispenser.s1.Enabled = true
+		a.Dispenser.s2.Enabled = true
+		a.Dispenser.s3.Enabled = true
+		a.Dispenser.s4.Enabled = true
+		a.Dispenser.s5.Enabled = true
+		m249s:Play()
+		a.Dispenser.Decal1.Transparency = 0
+		a.Dispenser.Decal2.Transparency = 0
+		wait(0.100)
+		m.Target:Destroy()
+		a.Shot.GunShotLight.Enabled = false
+		a.Shot.Transparency = 1
+		a.Shot.Smoke1.Enabled = false
+		a.Shot.Smoke2.Enabled = false
+		a.Dispenser.s1.Enabled = false
+		a.Dispenser.s2.Enabled = false
+		a.Dispenser.s3.Enabled = false
+		a.Dispenser.s4.Enabled = false
+		a.Dispenser.s5.Enabled = false
+
+
+		a.Dispenser.Decal1.Transparency = 1
+		a.Dispenser.Decal2.Transparency = 1
+	end)
+	a.Unequipped:Connect(function()
+			RightArm.Name = "RightUpperArm"
+			LeftArm.Name = "LeftUpperArm"
+			RightArm.RightShoulder.C1 = RightC1
+			LeftArm.LeftShoulder.C1 = LeftC1
+	end)
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Shears [Released]",
+   Callback = function()
+  local a = game:GetObjects("rbxassetid://140570175482019")[1]
+a.Parent = game.Players.LocalPlayer.Backpack
+local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local af = a.Animations
+p = game.Players.LocalPlayer
+m = p:GetMouse()
+local use = b:LoadAnimation(af.use)
+local idle = b:LoadAnimation(af.idle)
+
+
+a.Equipped:Connect(function()
+	idle:Play()
+  a.Unequipped:Connect(function()
+	  idle:Stop()
+  end)
+  a.Activated:Connect(function()
+	  idle:Stop()
+    use:Play()
+	  if m.Target.ClassName == "Part" then
+		    m.Target:Destroy()
+	  end
+    use.Stopped:Connect(function()
+        idle:Play()
+    end) 
+  end)
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Holy Grenade [Released]",
+   Callback = function()
+   local tool = game:GetObjects("rbxassetid://76933124953229")[1]
+local c = game.Players.LocalPlayer.Character
+local hum = c:WaitForChild("Humanoid")
+local anim2 = tool.Animations.idle
+local idle = hum:LoadAnimation(anim2)
+tool.Parent = game.Players.LocalPlayer.Backpack
+local tw = game:GetService("TweenService")
+local unlimited = true
+tool.Handle.Attachment.Shiny.Enabled = false
+tool.Equipped:Connect(function()
+    idle:Play()
+    tool.Unequipped:Connect(function()
+        idle:Stop()
+    end)
+end)
+tool.Activated:Connect(function()
+    local c = game.Players.LocalPlayer.Character
+    local hum = c:WaitForChild("Humanoid")
+    local anim = tool.Animations.open
+    local throw = hum:LoadAnimation(anim)
+    local handle = tool.Handle
+    local direction
+    local handleclone = handle:Clone()
+    local light = handleclone.PointLight
+    local function explodecreate()
+        local explosion = Instance.new("Explosion", workspace)
+        explosion.Position = handleclone.Position
+        explosion.BlastRadius = 28
+    end
+    throw:Play()
+    handleclone.sound_throw:Play()
+    handleclone.Parent = workspace
+    handleclone.CFrame = handle.CFrame
+    direction = handleclone.CFrame.lookVector * 75
+    handleclone.Velocity = direction
+    handleclone.Anchored = false
+    handleclone.CanCollide = true
+    handleclone.Attachment.Shiny.Enabled = true
+    wait(1.4)
+    handleclone.Anchored = true
+    wait(0.8)
+    handleclone.sound_sing:Play()
+    wait(1.05)
+    handleclone.sound_explode:Play()
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear)
+    local tweenInfo2 = TweenInfo.new(1, Enum.EasingStyle.Linear)
+    tw:Create(light,tweenInfo,{Brightness=650}):Play()
+    explodecreate()
+    wait(0.5)
+    tw:Create(light,tweenInfo2,{Brightness=0}):Play()
+    handleclone:Destroy()
+    if unlimited == false then
+        tool:Destroy()
+    end
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Crucifix [Released, After HOTEL+]",
+   Callback = function()
+   local plr = game.Players.LocalPlayer
+local Char = plr.Character or plr.CharacterAdded:Wait()
+local Hum = Char:FindFirstChild("Humanoid")
+local RightArm = Char:FindFirstChild("RightUpperArm")
+local LeftArm = Char:FindFirstChild("LeftUpperArm")
+local RightC1 = RightArm.RightShoulder.C1
+local LeftC1 = LeftArm.LeftShoulder.C1
+
+local a = game:GetObjects("rbxassetid://133400552943958")[1]
+local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+a.Parent = game.Players.LocalPlayer.Backpack
+a.Equipped:Connect(function()
+	RightArm.Name = "R_Arm"
+	LeftArm.Name = "L_Arm"
+	RightArm.RightShoulder.C1 = RightC1 * CFrame.Angles(math.rad(-90), math.rad(-35), 0)
+	LeftArm.LeftShoulder.C1 = LeftC1 * CFrame.Angles(math.rad(-90), math.rad(50), 0)
+	a.Unequipped:Connect(function()
+		RightArm.Name = "RightUpperArm"
+		LeftArm.Name = "LeftUpperArm"
+		RightArm.RightShoulder.C1 = RightC1
+		LeftArm.LeftShoulder.C1 = LeftC1
+	end)
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "StarJug [Remaked by me thanks for upio!]",
+   Callback = function()
+   --[[
+
+  THANKS 
+    _    _ _____ _____ ____  
+   | |  | |  __ \_   _/ __ \ 
+   | |  | | |__) || || |  | |
+   | |  | |  ___/ | || |  | |
+   | |__| | |    _| || |__| |
+    \____/|_|   |_____\____/ 
+
+    FOR THIS SCRIPT!
+--]]
+
+local TweenService = game:GetService("TweenService")
+local StarJug = game:GetObjects("rbxassetid://119885581324516")[1]
+
+local speedTweenValue = Instance.new("NumberValue", StarJug)
+
+local durability = 4
+local debounce = false
+StarJug:SetAttribute("Durability", durability)
+
+StarJug.Parent = game.Players.LocalPlayer.Backpack
+
+local character = game.Players.LocalPlayer.Character
+local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+local Animations = StarJug:WaitForChild("Animations")
+local LoadedAnims = {}
+
+for _, anim in pairs(Animations:GetChildren()) do
+	LoadedAnims[anim.Name] = humanoid:LoadAnimation(anim)
+
+	if anim.Name == "idle" then
+		LoadedAnims[anim.Name].Priority = Enum.AnimationPriority.Idle
+		LoadedAnims[anim.Name].Looped = true
+	end
+end
+
+StarJug.Equipped:Connect(function()
+	local equip2 = Animations.equip
+	local idle2 = Animations.idle
+	local play = humanoid:LoadAnimation(equip2)
+	play:Play()
+	play.Stopped:Connect(function()
+		local play2 = humanoid:LoadAnimation(idle2)
+		play2:Play()
+		StarJug.Unequipped:Connect(function()   
+			play:Stop()
+			play2:Stop()
+		end)
+	end)
+end)
+
+local collisionClone
+StarJug.Activated:Connect(function()
+	if debounce then return end
+	debounce = true
+
+	LoadedAnims["open"]:Play()
+
+	if durability - 1 ~= 0 then
+		durability = durability - 1
+		StarJug:SetAttribute("Durability", durability)
+	else
+		StarJug:Destroy()
+	end
+
+	character:SetAttribute("Starlight", true)
+	character:SetAttribute("StarlightHuge", true)
+
+	local speedBoost, speedBoostFinished, mspaint_speed = 30, false, false
+	if getgenv().mspaint_loaded then
+		if collisionClone then collisionClone:Destroy() end
+		mspaint_speed = true
+
+		local originalSpeed = getgenv().Linoria.Toggles.SpeedBypass.Value
+		repeat task.wait()
+			if not getgenv().Linoria.Toggles.SpeedBypass.Value then
+				getgenv().Linoria.Toggles.SpeedBypass:SetValue(true)
+			end
+		until speedBoostFinished
+		getgenv().Linoria.Toggles.SpeedBypass:SetValue(originalSpeed)
+	else
+		if not collisionClone then
+			collisionClone = character.Collision:Clone() do
+				collisionClone.CanCollide = false
+				collisionClone.Massless = true
+				collisionClone.Name = "CollisionClone"
+				if collisionClone:FindFirstChild("CollisionCrouch") then
+					collisionClone.CollisionCrouch:Destroy()
+				end
+
+				collisionClone.Parent = character    
+			end
+		end
+
+		task.spawn(function()
+			while not speedBoostFinished do
+				collisionClone.Massless = not collisionClone.Massless
+				task.wait(0.21)
+			end
+
+			collisionClone.Massless = true
+		end)
+	end
+
+	speedTweenValue.Value = 35
+	TweenService:Create(speedTweenValue, TweenInfo.new(70, Enum.EasingStyle.Linear), {
+		Value = 0
+	}):Play()
+
+	local conn; conn = speedTweenValue:GetPropertyChangedSignal("Value"):Connect(function()
+		character:SetAttribute("SpeedBoost", speedTweenValue.Value)
+	end)
+
+	task.wait(35)
+
+	speedBoostFinished = true
+	conn:Disconnect()
+	collisionClone:Destroy()
+
+	character:SetAttribute("Starlight", false)
+	character:SetAttribute("StarlightHuge", false)
+	character:SetAttribute("SpeedBoost", 0)
+	debounce = false
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "MoonJug [Released]",
+   Callback = function()
+   --[[
+
+
+
+--]]
+
+local TweenService = game:GetService("TweenService")
+local StarJug = game:GetObjects("rbxassetid://92860280096855")[1]
+
+local speedTweenValue = Instance.new("NumberValue", StarJug)
+
+local durability = 4
+local debounce = false
+StarJug:SetAttribute("Durability", durability)
+
+StarJug.Parent = game.Players.LocalPlayer.Backpack
+
+local character = game.Players.LocalPlayer.Character
+local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+local Animations = StarJug:WaitForChild("Animations")
+local LoadedAnims = {}
+
+for _, anim in pairs(Animations:GetChildren()) do
+	LoadedAnims[anim.Name] = humanoid:LoadAnimation(anim)
+
+	if anim.Name == "idle" then
+		LoadedAnims[anim.Name].Priority = Enum.AnimationPriority.Idle
+		LoadedAnims[anim.Name].Looped = true
+	end
+end
+
+StarJug.Equipped:Connect(function()
+	local equip2 = Animations.equip
+	local idle2 = Animations.idle
+	local play = humanoid:LoadAnimation(equip2)
+	play:Play()
+	play.Stopped:Connect(function()
+		local play2 = humanoid:LoadAnimation(idle2)
+		play2:Play()
+		StarJug.Unequipped:Connect(function()   
+			play:Stop()
+			play2:Stop()
+		end)
+	end)
+end)
+
+local collisionClone
+StarJug.Activated:Connect(function()
+	if debounce then return end
+	debounce = true
+
+	LoadedAnims["open"]:Play()
+
+	if durability - 1 ~= 0 then
+		durability = durability - 1
+		StarJug:SetAttribute("Durability", durability)
+	else
+		StarJug:Destroy()
+	end
+
+	character:SetAttribute("Starlight", true)
+	character:SetAttribute("StarlightHuge", true)
+
+	local speedBoost, speedBoostFinished, mspaint_speed = 30, false, false
+	if getgenv().mspaint_loaded then
+		if collisionClone then collisionClone:Destroy() end
+		mspaint_speed = true
+
+		local originalSpeed = getgenv().Linoria.Toggles.SpeedBypass.Value
+		repeat task.wait()
+			if not getgenv().Linoria.Toggles.SpeedBypass.Value then
+				getgenv().Linoria.Toggles.SpeedBypass:SetValue(true)
+			end
+		until speedBoostFinished
+		getgenv().Linoria.Toggles.SpeedBypass:SetValue(originalSpeed)
+	else
+		if not collisionClone then
+			collisionClone = character.Collision:Clone() do
+				collisionClone.CanCollide = false
+				collisionClone.Massless = true
+				collisionClone.Name = "CollisionClone"
+				if collisionClone:FindFirstChild("CollisionCrouch") then
+					collisionClone.CollisionCrouch:Destroy()
+				end
+
+				collisionClone.Parent = character    
+			end
+		end
+
+		task.spawn(function()
+			while not speedBoostFinished do
+				collisionClone.Massless = not collisionClone.Massless
+				task.wait(0.21)
+			end
+
+			collisionClone.Massless = true
+		end)
+	end
+
+	speedTweenValue.Value = 35
+	TweenService:Create(speedTweenValue, TweenInfo.new(70, Enum.EasingStyle.Linear), {
+		Value = 0
+	}):Play()
+
+	local conn; conn = speedTweenValue:GetPropertyChangedSignal("Value"):Connect(function()
+		character:SetAttribute("SpeedBoost", speedTweenValue.Value)
+	end)
+
+	task.wait(35)
+
+	speedBoostFinished = true
+	conn:Disconnect()
+	collisionClone:Destroy()
+
+	character:SetAttribute("Starlight", false)
+	character:SetAttribute("StarlightHuge", false)
+	character:SetAttribute("SpeedBoost", 0)
+	debounce = false
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Curious Candle [Released]",
+   Callback = function()
+   local a = game:GetObjects("rbxassetid://94555723460755")[1]
+local b = game.Players.LocalPlayer.Character.Humanoid
+a.Animations.idle.AnimationId = "rbxassetid://11545520304"
+a.Parent = game.Players.LocalPlayer.Backpack
+
+local idle = b:LoadAnimation(a.Animations.idle)
+
+a.Equipped:Connect(function()
+  idle:Play()
+  a.Unequipped:Connect(function()
+    idle:Stop()
+  end)
+end)
+
+
+--[[
+
+  close = rbxassetid://9982408775
+  open = rbxassetid://9975553075
+  idle = rbxassetid://11545520304
+  idleclosed = rbxassetid://9982427158
+  relight = rbxassetid://9975606580
+
+--]]
+   end,
+})
+local Section2 = Tab:CreateSection("ValerikRob's Hotel Items")
+local Button = Tab:CreateButton({
+   Name = "Key [Released]",
+   Callback = function()
+   local a = game:GetObjects("rbxassetid://87027639116625")[1]
+a.Parent = game.Players.LocalPlayer.Backpack
+local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local af = a.Animations
+local Equip = b:LoadAnimation(af.equip)
+local Hold = b:LoadAnimation(af.idle)
+
+
+a.Equipped:Connect(function()
+	Equip:Play()
+	Equip.Stopped:Connect(function()
+		Hold:Play()
+	end)
+end)
+
+a.Unequipped:Connect(function()
+	Equip:Stop()
+	Hold:Stop()
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Guiding Candle [Released]",
+   Callback = function()
+   local a = game:GetObjects("rbxassetid://136570795306172")[1]
+local b = game.Players.LocalPlayer.Character.Humanoid
+a.Animations.idle.AnimationId = "rbxassetid://11545520304"
+a.Parent = game.Players.LocalPlayer.Backpack
+
+local idle = b:LoadAnimation(a.Animations.idle)
+
+a.Equipped:Connect(function()
+  idle:Play()
+  a.Unequipped:Connect(function()
+    idle:Stop()
+  end)
+end)
+
+
+--[[
+
+  close = rbxassetid://9982408775
+  open = rbxassetid://9975553075
+  idle = rbxassetid://11545520304
+  idleclosed = rbxassetid://9982427158
+  relight = rbxassetid://9975606580
+  icon = rbxassetid://11801740354
+
+--]]
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Fuse [Released]",
+   Callback = function()
+   local a = game:GetObjects("rbxassetid://70911541015987")[1]
+a.Parent = game.Players.LocalPlayer.Backpack
+local b = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local af = a.Animations
+local Equip = b:LoadAnimation(af.equip)
+local Hold = b:LoadAnimation(af.idle)
+
+
+a.Equipped:Connect(function()
+	Equip:Play()
+	Equip.Stopped:Connect(function()
+		Hold:Play()
+	end)
+end)
+
+a.Unequipped:Connect(function()
+	Equip:Stop()
+	Hold:Stop()
+end)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Crucifix [Released]",
+   Callback = function()
+   local a=game:GetObjects("rbxassetid://12987670263")[1]local b=game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")a.Parent=game.Players.LocalPlayer.Backpack;a.Equipped:Connect(function()local a=a.Animations.idle;local a=b:LoadAnimation(a)a:Play()end)a.Unequipped:Connect(function()for a,a in pairs(b.Animator:GetPlayingAnimationTracks())do a:Stop()end end)
+   end,
+})
+local TabD = Window:CreateTab("Other", 130324592621375)
+local Section = TabD:CreateSection("ValerikRob's Items")
+local Button = TabD:CreateButton({
+   Name = "Curious Crucifix [Released + Mini Cutscene]",
+   Callback = function()
+   local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local PlayerGui = Player.PlayerGui
+
+local Curious = game:GetObjects("rbxassetid://87521737355680")[1]
+local DiologGui = game:GetObjects("rbxassetid://121772613578585")[1]
+
+Curious.Parent = workspace
+Curious.CFrame = Character.HumanoidRootPart.CFrame
+DiologGui.Parent = PlayerGui
+
+local Info = TweenInfo.new(1)
+local TweenVisible = game:GetService("TweenService"):Create(DiologGui.Frame.Diolog,Info,{TextTransparency=0})
+local TweenUnVisible = game:GetService("TweenService"):Create(DiologGui.Frame.Diolog,Info,{TextTransparency=1})
+
+PlayerGui.CuriousLightDiolog.Frame.Diolog.Text = "Hello?"
+wait(1)
+TweenVisible:Play()
+wait(4)
+TweenUnVisible:Play()
+wait(4)
+PlayerGui.CuriousLightDiolog.Frame.Diolog.Text = "Wait, how did I get here? I was in the ROOMS dimension."
+wait(1)
+TweenVisible:Play()
+wait(4)
+TweenUnVisible:Play()
+wait(4)
+PlayerGui.CuriousLightDiolog.Frame.Diolog.Text = "Ok player, in honor of the fact that I got here I want to help you?"
+wait(1)
+TweenVisible:Play()
+wait(4)
+TweenUnVisible:Play()
+wait(4)
+PlayerGui.CuriousLightDiolog.Frame.Diolog.Text = "I'll give you a cross, I'll be in it. I don't know yet how to get back."
+wait(1)
+TweenVisible:Play()
+wait(4)
+TweenUnVisible:Play()
+wait(4)
+PlayerGui.CuriousLightDiolog.Frame.Diolog.Text = "But as I understand it, when you use it, I will go back!"
+wait(1)
+TweenVisible:Play()
+wait(4)
+TweenUnVisible:Play()
+wait(4)
+PlayerGui.CuriousLightDiolog.Frame.Diolog.Text = "Bye..."
+wait(4)
+TweenVisible:Play()
+
+wait(1)
+
+TweenUnVisible:Play()
+
+local a=game:GetObjects("rbxassetid://78372140768961")[1]local b=game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")a.Parent=game.Players.LocalPlayer.Backpack;a.Equipped:Connect(function()local a=a.Animations.idle;local a=b:LoadAnimation(a)a:Play()end)a.Unequipped:Connect(function()for a,a in pairs(b.Animator:GetPlayingAnimationTracks())do a:Stop()end end)
+
+Curious:Destroy()
+local Details = {
+    Description = "You found me!",
+    Title = "You helped!",
+    Reason =  "Find a curious light.",
+    Icon = "http://www.roblox.com/asset/?id=75655503675035"
+}
+
+local LocalPlayer = game.Players.LocalPlayer;
+local GUI = LocalPlayer.PlayerGui.MainUI
+local TweenService = game:GetService("TweenService");
+local AchievementsHolder = GUI.AchievementsHolder.Achievement:Clone();
+AchievementsHolder.Size = UDim2.new(0, 0, 0, 0);
+AchievementsHolder.Frame.Position = UDim2.new(1.1, 0, 0, 0);
+AchievementsHolder.Name = "LiveAchievement";
+AchievementsHolder.Visible = true;
+AchievementsHolder.Parent = GUI.AchievementsHolder;
+AchievementsHolder.Frame.Details.Desc.Text = Details.Description
+AchievementsHolder.Frame.Details.Title.Text = Details.Title
+AchievementsHolder.Frame.Details.Reason.Text = Details.Reason
+AchievementsHolder.Frame.ImageLabel.Image = Details.Icon
+AchievementsHolder.Sound:Play();
+AchievementsHolder:TweenSize(UDim2.new(1, 0, 0.2, 0), "In", "Quad", 0.8, true);
+wait(0.8);
+AchievementsHolder.Frame:TweenPosition(UDim2.new(0, 0, 0, 0), "Out", "Quad", 0.5, true);
+TweenService:Create(AchievementsHolder.Frame.Glow, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+    ImageTransparency = 1
+  }):Play();
+  wait(8);
+AchievementsHolder.Frame:TweenPosition(UDim2.new(1.1, 0, 0, 0), "In", "Quad", 0.5, true);
+wait(0.5);
+AchievementsHolder:TweenSize(UDim2.new(1, 0, -0.1, 0), "InOut", "Quad", 0.5, true);
+wait(0.5);
+AchievementsHolder:Destroy();
+
+wait(5)
+
+DiologGui:Destroy()
+
+while true do 
+  wait(0.)
+  PlayerGui.MainUI.Statistics.Death:Destroy()
+  PlayerGui.MainUI.Statistics.Secret.Visible = true
+  PlayerGui.MainUI.Statistics.Secret.Text = "Helped by Curious Light"
+end
+   end,
+})
